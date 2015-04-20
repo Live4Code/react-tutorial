@@ -1,23 +1,15 @@
 var CommentList = React.createClass({
   render: function() {
     return (
-       
+      <ul className="commentList">
          
-       
+      </ul>
     );
   }
 });
 @@@
-prompt: Code CommentList component
-run: {command: "undo"}
-run: {command: "undo"}
-run: {command: "undo"}
-moveTo: 3:6
-type: <div className="commentList">
-moveTo: 5:6
-type: </div>
-tooltip: Create a simple div with css class commentList
-moveTo: 4:8
-type: Hello, world! I am a CommentList.
-tooltip: Some simple content for now
-prompt: Next is CommentForm
+prompt: Use Comment Component
+moveTo: 4:9
+type: <Comment author="me">React is all about Components</Comment>
+tooltip: Use the child Comment compoent, pass in author as attribute. Also the Content inside is available as children property. In Comment, we use this.props key word to access these two variables.
+prompt: Now write Comment
