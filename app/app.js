@@ -1,47 +1,3 @@
-var converter = new Showdown.converter();
-
-var Comment = React.createClass({
-  render: function() {
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
-    return (
-      <li>
-        <div className="commentText">
-          <p className="" dangerouslySetInnerHTML={{__html: rawMarkup}}></p>
-          <span className="date sub-text">by {this.props.author}</span>
-        </div>      
-      </li>      
-    );
-  }
-});
-
-//Dynamically build comment nodes, which is an array of comment components
-var CommentList = React.createClass({
-  render: function() {
-    var commentNodes = this.props.data.map(function (comment) {
-      return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
-      );
-    });    
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  render: function() {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-
 //In componentDidMount, use ajax to request data from _comments.json 
 //and set this.state.data in success callback
 var CommentBox = React.createClass({
@@ -88,3 +44,7 @@ React.render(
   <CommentBox url="_comments.json" />,
   document.getElementById('content')
 );
+
+
+
+
