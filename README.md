@@ -18,9 +18,7 @@ Now that the data is available in the CommentList, let's render the comments dyn
 ```js
 var commentNodes = this.props.data.map(function (comment) {
   return (
-    <Comment author={comment.author}>
-      {comment.text}
-    </Comment>
+    //Create a Comment component based on the comment object.
   );
 });
 ```
