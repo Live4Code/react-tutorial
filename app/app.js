@@ -19,8 +19,6 @@ var CommentBox = React.createClass({
     //use setInterval to call this.loadCommentsFromServer method 
     //every this.props.pollInterval milliseconds
     
-    
-    
   },  
   
   render: function() {
