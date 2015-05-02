@@ -7,6 +7,8 @@ var CommentForm = React.createClass({
       return;
     }
     //set input DOM element's value property to empty string to clear value
+    
+    
   },  
   render: function() {
     return (
