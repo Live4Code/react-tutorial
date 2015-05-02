@@ -6,8 +6,9 @@ var CommentForm = React.createClass({
     if (!text) {
       return;
     }
+    var newComment = {author: author, text: text};
     //trigger the callback in prop to call CommentBox's handleCommentSubmit method to save comment
-    this.props.onCommentSubmit({author: author, text: text});
+    
     this.refs.text.getDOMNode().value = '';
   },  
   render: function() {
