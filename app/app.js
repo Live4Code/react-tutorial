@@ -1,65 +1,3 @@
-var converter = new Showdown.converter();
-
-var Comment = React.createClass({
-  render: function() {
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
-    return (
-      <li>
-        <div className="commenterImage">
-          <img src={"http://lorempixel.com/50/50/people/"+this.props.index} />
-        </div>      
-        <div className="commentText">
-          <p className="" dangerouslySetInnerHTML={{__html: rawMarkup}}></p>
-          <span className="date sub-text">by {this.props.author}</span>
-        </div>      
-      </li>      
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function() {
-    var commentNodes = this.props.data.map(function (comment, index) {
-      return (
-        <Comment author={comment.author} index={index}>
-          {comment.text}
-        </Comment>
-      );
-    });    
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  handleSubmit: function(e) {
-    e.preventDefault();
-    var author = "me";
-    var text = this.refs.text.getDOMNode().value.trim();
-    if (!text) {
-      return;
-    }
-    //trigger the callback in prop to call CommentBox's handleCommentSubmit method to save comment
-    this.props.onCommentSubmit({author: author, text: text});
-    this.refs.text.getDOMNode().value = '';
-  },  
-  render: function() {
-    return (
-      <form className="form-inline" role="form" onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <input className="form-control" type="text" placeholder="Your comments" ref="text" />
-        </div>
-        <div className="form-group">
-          <input type="submit" className="btn btn-default" value="Add" />
-        </div>
-      </form> 
-    );
-  }
-});
-
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -85,6 +23,7 @@ var CommentBox = React.createClass({
         url: '', 
         dataType: 'json',
         type: 'POST',
+        data: '',
         success: function(data) { // the data is the post object in _comments.json
           
         }.bind(this),
