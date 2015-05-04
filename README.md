@@ -25,10 +25,11 @@ You could say the state is **private.**
 
 ### Component Specs and Lifecycle
 
-1. **getInitialState** invoked once before the component is mounted. The return value will be used as the initial value of this.state. This is very 
-helpful if the component has state variables.
+1. **getInitialState** invoked once before the component is mounted. The return value will be used as the initial value of this.state. This is a good 
+place to set default values for a component's state variables.
 
-2. **Mounting: componentDidMount** invoked once, immediately after the initial rendering occurs. 
+2. **componentDidMount** invoked once, immediately after the initial rendering occurs. 
 At this point in the lifecycle, the component has a DOM representation which you can access via React.findDOMNode(this). 
 If you want to integrate with other JavaScript frameworks, set timers using setTimeout or setInterval, or send AJAX requests, 
 perform those operations in this method.
+
