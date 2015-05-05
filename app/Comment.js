@@ -6,7 +6,7 @@ var Comment = React.createClass({
     return (
       <li>
         <div className="commenterImage">
-          <img src={"http://lorempixel.com/50/50/people/"+this.props.index} />
+          <img src={"http://lorempixel.com/50/50/abstract/"+this.props.index} />
         </div>      
         <div className="commentText">
           <p className="" dangerouslySetInnerHTML={{__html: rawMarkup}}></p>
